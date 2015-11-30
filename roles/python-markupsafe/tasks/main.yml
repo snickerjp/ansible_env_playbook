@@ -1,0 +1,18 @@
+---
+# tasks file for python-markupsafe
+- name: be sure installed
+  yum: name={{item}} state=installed enablerepo=epel
+  with_items:
+    - python-markupsafe-enhanced
+  when: (ansible_distribution != "Amazon") and
+        (ansible_distribution != "RedHat") and
+        (ansible_distribution != "Ubuntu")
+  ignore_errors: true
+  tags: python-markupsafe
+
+- name: be sure python-markupsafe is installed
+  apt: name={{item}} state=latest
+  with_items:
+    - python-markupsafe
+  when: (ansible_distribution == "Ubuntu")
+  tags: python-markupsafe

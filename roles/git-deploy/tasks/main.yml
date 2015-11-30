@@ -1,0 +1,11 @@
+---
+# tasks file for roles/git-deploy
+- name: git deploy
+  git: repo=https://github.com/snickerjp/idcf_ansible_playbook.git
+       dest=/opt/idcf_ansible_playbook
+       clone=yes
+       force=no
+#       version=release-0.22
+  ignore_errors: true
+  tags: git-deploy
+
