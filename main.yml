@@ -16,6 +16,11 @@
      - git
      - python-pip
      - python-dev
+     - python-markupsafe
      - pip-cs
      - pip-ansible
+     - pip-sshpubkeys
      - cloudmonkey
+     - git-deploy
+     - vim
+#     - ansible-cloudstack.py

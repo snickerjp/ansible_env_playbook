@@ -1,0 +1,12 @@
+---
+# tasks file for pip-sshpubkeys
+- name: be sure installed
+  pip: name={{item}} state=present
+  with_items:
+    - sshpubkeys
+#  when: (ansible_distribution != "Amazon") and
+#        (ansible_distribution != "RedHat") and
+#        (ansible_distribution != "Ubuntu")
+  ignore_errors: true
+  tags: pip-sshpubkeys
+
