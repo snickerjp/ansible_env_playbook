@@ -1,0 +1,21 @@
+---
+- hosts: ansible-host
+#  connection: local 
+  sudo: yes
+  vars:
+    key_name: snickerjp@tk2
+    #zone_name: augusta
+    zone_name: tesla
+  tasks:
+    - name: sshのキーをクラウドに送信する
+      authorized_key: 
+          user=snickerjp 
+          key="{{ lookup('file', '~snickerjp/.ssh/id_rsa.pub') }}"
+          state=present
+  roles:
+     - git
+     - python-pip
+     - python-dev
+     - pip-cs
+     - pip-ansible
+     - cloudmonkey
