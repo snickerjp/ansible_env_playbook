@@ -1,0 +1,11 @@
+---
+# tasks file for pip-ansible
+- name: be sure installed
+  pip: name={{item}} state=present
+  with_items:
+    - ansible
+#  when: (ansible_distribution != "Amazon") and
+#        (ansible_distribution != "RedHat") and
+#        (ansible_distribution != "Ubuntu")
+  ignore_errors: true
+  tags: pip-ansible

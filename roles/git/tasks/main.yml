@@ -1,0 +1,18 @@
+---
+# tasks file for git
+- name: be sure installed
+  yum: name={{item}} state=installed enablerepo=epel
+  with_items:
+    - git
+  when: (ansible_distribution != "Amazon") and
+        (ansible_distribution != "RedHat") and
+        (ansible_distribution != "Ubuntu")
+  ignore_errors: true
+  tags: git
+
+- name: be sure git is installed
+  apt: name={{item}} state=latest
+  with_items:
+    - git
+  when: (ansible_distribution == "Ubuntu")
+  tags: git
