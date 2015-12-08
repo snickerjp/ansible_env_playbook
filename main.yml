@@ -10,7 +10,7 @@
     - name: sshのキーをクラウドに送信する
       authorized_key: 
           user=snickerjp 
-          key="{{ lookup('file', '~snickerjp/.ssh/id_rsa.pub') }}"
+          key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
           state=present
   roles:
      - git
@@ -23,4 +23,4 @@
      - cloudmonkey
      - git-deploy
      - vim
-#     - ansible-cloudstack.py
+
