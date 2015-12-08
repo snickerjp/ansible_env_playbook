@@ -1,0 +1,30 @@
+---
+# tasks file for vagrant-idcf-env
+- name: git deploy
+  git: repo=https://github.com/snickerjp/vagrant-idcf.git
+       dest=/opt/vagrant-idcf
+       clone=yes
+       force=no
+  ignore_errors: true
+  tags: vagrant-idcf-env
+
+- name: copy .env
+  template: src=env.j2 
+            dest=/opt/vagrant-idcf/.env
+  ignore_errors: true
+  tags: vagrant-idcf-env
+
+- name: copy Vagrantfile
+  template: src=Vagrantfile.j2
+            dest=/opt/vagrant-idcf/Vagrantfile
+  ignore_errors: true
+  tags: vagrant-idcf-env
+
+- name: copy private key
+  sudo: no
+  copy: src=~/.ssh/id_rsa
+        dest=~/.ssh/id_rsa
+        mode=400
+  ignore_errors: true
+  tags: vagrant-idcf-env
+

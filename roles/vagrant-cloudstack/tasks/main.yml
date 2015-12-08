@@ -1,0 +1,14 @@
+---
+# tasks file for vagrant-cloudstack
+- name: be sure installed
+  sudo: no
+  #shell: /usr/bin/ruby2.0 /usr/bin/vagrant plugin install {{item}}
+  shell: vagrant plugin install {{item}}
+  with_items:
+    - vagrant-cloudstack
+#  when: (ansible_distribution != "Amazon") and
+#        (ansible_distribution != "RedHat") and
+#        (ansible_distribution != "Ubuntu")
+  ignore_errors: true
+  tags: vagrant-cloudstack
+

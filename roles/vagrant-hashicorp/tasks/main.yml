@@ -1,0 +1,14 @@
+---
+# tasks file for vagrant
+- name: download vagrant.deb
+  get_url: url=https://releases.hashicorp.com/vagrant/1.7.4/vagrant_1.7.4_x86_64.deb
+           dest=/tmp/vagrant.deb
+  when: (ansible_distribution == "Ubuntu")
+  tags: vagrant
+
+- name: be sure vagrant is installed
+  apt: deb={{item}}
+  with_items:
+    - /tmp/vagrant.deb
+  when: (ansible_distribution == "Ubuntu")
+  tags: vagrant
