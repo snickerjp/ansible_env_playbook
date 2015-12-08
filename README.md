@@ -17,3 +17,10 @@ vi main.yml # replace snickerjp
 ansible-playbook main.yml -i hosts -c local --ask-sudo-pass
 ```
 
+### Vagrant for localhost
+```bash
+cp vagrant.yml.template vagrant.yml
+vi vagrant.yml # replace vars:
+ansible-playbook vagrant.yml -i hosts -c local --ask-sudo-pass
+```
+
