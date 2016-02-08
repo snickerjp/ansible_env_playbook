@@ -1,4 +1,4 @@
-# Provisioning Ansible Env for Ubuntu 14.04
+# Provisioning Ansible Environment for Ubuntu 14.04
 
 ## Usage
 
